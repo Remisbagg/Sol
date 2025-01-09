@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+body {
+  background: #25D2FF;
+  font-family: "Fredoka One", cursive;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  max-width: 600px; /* Limita el tamaño máximo */
+  width: 90%; /* Ajusta al 90% del ancho de la pantalla */
+}
+
+.text {
+  color: white;
+  text-shadow: 1px 1px #2E3847;
+  font-size: 3em;
+  margin-bottom: 20px; /* Espacio entre el texto y los regalos */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .text {
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 1.5em;
+  }
+}
+
+.splitting .char {
+  animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) both;
+  animation-delay: calc(60ms * var(--char-index));
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-1em) rotate(-0.5turn) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.presents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px; /* Asegura que los regalos se alineen debajo del texto */
+}
+
+.present {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 120px; /* Tamaño por defecto */
+}
+
+.present .lid {
+  height: 20%;
+  width: calc(100% + 10px);
+  border: 4px solid #2E3847;
+  border-radius: 3px;
+  box-shadow: inset 1px 2px rgba(255, 255, 255, 0.5), 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.present .box {
+  width: 100%;
+  height: 100%;
+  background-position: 0 0, 20px 20px;
+  background-size: 40px 40px;
+  border: 4px solid #2E3847;
+  border-top: 0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  box-shadow: inset -10px 5px rgba(0, 0, 0, 0.3), 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.present .ribbon {
+  position: absolute;
+  top: -3px;
+  width: 30px;
+  height: calc(100% - 5px);
+  border: 4px solid #2E3847;
+  border-radius: 3px;
+  box-shadow: inset 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.present .ribbon::before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.present .bow {
+  position: absolute;
+  top: -20px;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #2E3847;
+  border-radius: 50%;
+  box-shadow: inset 2px 2px rgba(255, 255, 255, 0.5), inset -3px -5px rgba(0, 0, 0, 0.3);
+}
+
+.present .bow::before, .present .bow::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 30px;
+  height: 30px;
+  border: 4px solid #2E3847;
+  border-radius: 50%;
+  box-shadow: inset 2px 2px rgba(255, 255, 255, 0.5), inset -3px -5px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.present .bow::before {
+  left: 15px;
+}
+
+.present .bow::after {
+  right: 15px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .present {
+    width: 90px; /* Reducción en tamaño para pantallas más pequeñas */
+  }
+
+  .present .lid {
+    width: calc(100% + 5px);
+  }
+
+  .present .box {
+    width: 95%;
+  }
+
+  .present .ribbon {
+    width: 25px;
+  }
+
+  .present .bow {
+    width: 15px;
+    height: 15px;
+  }
+
+  .present .bow::before, .present .bow::after {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .present {
+    width: 70px; /* Más pequeño en dispositivos muy pequeños */
+  }
+
+  .present .lid {
+    width: calc(100% + 5px);
+  }
+
+  .present .box {
+    width: 90%;
+  }
+
+  .present .ribbon {
+    width: 20px;
+  }
+
+  .present .bow {
+    width: 12px;
+    height: 12px;
+  }
+
+  .present .bow::before, .present .bow::after {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+.green {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.green:hover {
+  animation: 0.5s green;
+}
+
+.green .lid {
+  background: #3DDC81;
+}
+
+.green .box {
+  background-image: radial-gradient(#fff 20%, transparent 20%), radial-gradient(#fff 20%, transparent 20%);
+  background-color: #3DDC81;
+}
+
+.green .ribbon {
+  background: #F75D4C;
+}
+
+.green .ribbon::before {
+  top: 21%;
+}
+
+.green .bow {
+  background: #F75D4C;
+}
+
+.green .bow::before,
+.green .bow::after {
+  background: #F75D4C;
+}
+
+@keyframes green {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  30% {
+    width: calc(100px + 10px);
+    height: calc(100px - 10px);
+  }
+  60% {
+    width: calc(100px - 10px);
+    height: calc(100px + 10px);
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.orange {
+  position: relative;
+  width: 130px;
+  height: 120px;
+}
+
+.orange:hover {
+  animation: 0.5s orange;
+}
+
+.orange .lid {
+  background: #FFA726;
+}
+
+.orange .box {
+  background-image: radial-gradient(#2E3847 20%, transparent 20%), radial-gradient(#2E3847 20%, transparent 20%);
+  background-color: #FFA726;
+}
+
+.orange .ribbon {
+  background: #F75D4C;
+}
+
+.orange .ribbon::before {
+  top: 21%;
+}
+
+.orange .bow {
+  background: #F75D4C;
+}
+
+.orange .bow::before,
+.orange .bow::after {
+  background: #F75D4C;
+}
+
+@keyframes orange {
+  0% {
+    width: 130px;
+    height: 120px;
+  }
+  30% {
+    width: calc(130px + 10px);
+    height: calc(120px - 10px);
+  }
+  60% {
+    width: calc(130px - 10px);
+    height: calc(120px + 10px);
+  }
+  100% {
+    width: 130px;
+    height: 120px;
+  }
+}
+
+.blue {
+  position: relative;
+  width: 120px;
+  height: 160px;
+}
+
+.blue:hover {
+  animation: 0.5s blue;
+}
+
+.blue .lid {
+  background: #1BB5FE;
+}
+
+.blue .box {
+  background-image: radial-gradient(transparent 20%, transparent 20%), radial-gradient(transparent 20%, transparent 20%);
+  background-color: #1BB5FE;
+}
+
+.blue .ribbon {
+  background: #3DDC81;
+}
+
+.blue .ribbon::before {
+  top: 21%;
+}
+
+.blue .bow {
+  background: #3DDC81;
+}
+
+.blue .bow::before,
+.blue .bow::after {
+  background: #3DDC81;
+}
+
+@keyframes blue {
+  0% {
+    width: 120px;
+    height: 160px;
+  }
+  30% {
+    width: calc(120px + 10px);
+    height: calc(160px - 10px);
+  }
+  60% {
+    width: calc(120px - 10px);
+    height: calc(160px + 10px);
+  }
+  100% {
+    width: 120px;
+    height: 160px;
+  }
+}
+
+/* Ajustes finales para pantallas pequeñas */
+@media (max-width: 768px) {
+  .text {
+    font-size: 2.2em;
+  }
+
+  .present {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 1.5em;
+  }
+
+  .present {
+    width: 70%;
+  }
+}
